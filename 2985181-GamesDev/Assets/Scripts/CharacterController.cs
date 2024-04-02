@@ -35,6 +35,19 @@ public class CharacterControllerScript : MonoBehaviour
     {
         anim.SetFloat("speed", Mathf.Abs(myRigidbody.velocity.x));
         
+        // Animation flip code
+        if (Input.GetAxis("Horizontal") > 0.1f) // If the player is moving right
+        {
+            anim.transform.localScale = new Vector3(1, 1, 1);
+        }
+        
+        if (Input.GetAxis("Horizontal") < -0.1f) // if the player is moving to the left
+        {
+            anim.transform.localScale = new Vector3(-1, 1, 1); // set the scale of the player to -1,1,1
+        }
+        
+        // Animation flip code end
+        
         if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f && Mathf.Abs(myRigidbody.velocity.x) < maxSpeed) // If the absolute value of the input is greater than 0.1 and the player is not moving faster than max speed
         {
             // Gets input value and multiplies it by acceleration in the x direction
