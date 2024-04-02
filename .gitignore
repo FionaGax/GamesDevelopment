@@ -70,3 +70,21 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Additional Unity-Specific Directories
+/[Aa]ssets/AssetStore/
+/[Aa]ssets/Generated/
+/[Aa]ssets/Plugins/
+
+# Editor-specific files
+.idea/
+
+# External Libraries and Plugins
+/[Aa]ssets/ExternalLibrary/
+
+# Temporary or Cache Files
+*.meta
+*.tmp.meta
+
+# Additional Build Output
+/[Bb]uildOutput/
