@@ -90,3 +90,9 @@ crashlytics-build.properties
 /[Bb]uildOutput/
 
 /CinematicStudio/
+
+2985181-GamesDev/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-10.dylib
+2985181-GamesDev/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/libburst-llvm-16.so
+2985181-GamesDev/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/burst-llvm-16.dll
+2985181-GamesDev/Library/PackageCache/com.unity.burst@1.8.12/.Runtime/hostmac/dsymutil
+
