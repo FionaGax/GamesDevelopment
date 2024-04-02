@@ -88,3 +88,5 @@ crashlytics-build.properties
 
 # Additional Build Output
 /[Bb]uildOutput/
+
+/CinematicStudio/
