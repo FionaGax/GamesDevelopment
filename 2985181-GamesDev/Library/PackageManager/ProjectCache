@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638476694621227326
-    m_Hash: 220058439
+      ticks: 638476705048677236
+    m_Hash: 2469555979
   m_LockFileStatus:
     m_FilePath: C:/Users/fiona/GamesDevelopment/2985181-GamesDev/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638476694621372342
-    m_Hash: 2376094068
+      ticks: 638476705048677236
+    m_Hash: 2388328404
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
