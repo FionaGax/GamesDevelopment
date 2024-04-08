@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAIScript : MonoBehaviour
@@ -21,7 +20,7 @@ public class EnemyAIScript : MonoBehaviour
 
     public float chaseSpeed; //speed of the enemy when chasing the player
 
-    private float speed; //current speed of the enemy
+    private float _speed; //current speed of the enemy
 
     public float detectedPlayerTime; //time the enemy will stay in detect mode before beginning chasing player
 
@@ -31,47 +30,59 @@ public class EnemyAIScript : MonoBehaviour
 
     public bool aggro; //if the enemy is in an aggro state
     private Rigidbody2D _myRb;
+    public Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyAIState = State.Idle;
         _myRb = GetComponent<Rigidbody2D>(); // look for a component called Rigidbody2D and assign it to myRb
+        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        _myRb.velocity = new Vector2(speed, _myRb.velocity.y);
-
-        // if (_myRb.velocity.magnitude < maxSpeed)
-        // {
-        //     _myRb.AddForce(new Vector2(-speed, 0), ForceMode2D.Force);
-        // }
+        Vector2 directionToPlayer = (player.position - transform.position).normalized;
         
         switch (enemyAIState)
         {
             case State.Idle:
-                speed = 0;
+                _speed = 0;
                 //do nothing
                 break;
             case State.Patrol:
-                speed = moveSpeed;
+                _speed = moveSpeed;
                 //move the enemy
                 break;
             case State.DetectPlayer:
-                speed = 0;
+                _speed = 0;
                 //when player is detected, start a timer to chase the player
                 break;
             case State.Chasing:
                 //chases the player
-                speed = chaseSpeed;
+                _speed = directionToPlayer.x * chaseSpeed;
                 break;
             case State.AggroIdle:
                 //stays in aggro mode for a set time before going back to idle
-                speed = 0;
+                _speed = 0;
                 break;
         }
+        
+        _myRb.velocity = new Vector2(_speed, _myRb.velocity.y);
+
+        // Flip the sprite based on the direction of movement
+        // Animation flip code
+        if (_speed < 0.1f) // If the player is moving right
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        
+        if (_speed > -0.1f) // if the player is moving to the left
+        {
+            transform.localScale = new Vector3(-1, 1, 1); // set the scale of the player to -1,1,1
+        }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D other)
