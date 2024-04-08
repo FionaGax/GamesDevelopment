@@ -31,6 +31,7 @@ public class EnemyAIScript : MonoBehaviour
     public bool aggro; //if the enemy is in an aggro state
     private Rigidbody2D _myRb;
     public Transform player;
+    public Animator enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -38,21 +39,24 @@ public class EnemyAIScript : MonoBehaviour
         enemyAIState = State.Idle;
         _myRb = GetComponent<Rigidbody2D>(); // look for a component called Rigidbody2D and assign it to myRb
         player = GameObject.Find("Player").transform;
+        enemy = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-        
+        // Vector2 directionToPlayer = (player.position - transform.position).normalized;
+        float directionToPlayer = Mathf.Sign(player.position.x - transform.position.x);
         switch (enemyAIState)
         {
             case State.Idle:
                 _speed = 0;
+                enemy.SetTrigger("enemyIdle");
                 //do nothing
                 break;
             case State.Patrol:
                 _speed = moveSpeed;
+                // enemy.SetTrigger("enemyPatrol");
                 //move the enemy
                 break;
             case State.DetectPlayer:
@@ -61,27 +65,27 @@ public class EnemyAIScript : MonoBehaviour
                 break;
             case State.Chasing:
                 //chases the player
-                _speed = directionToPlayer.x * chaseSpeed;
+                _speed = directionToPlayer * chaseSpeed;
+                enemy.SetTrigger("enemyChase");
                 break;
             case State.AggroIdle:
                 //stays in aggro mode for a set time before going back to idle
                 _speed = 0;
+                enemy.SetTrigger("enemyAggro");
                 break;
         }
         
         _myRb.velocity = new Vector2(_speed, _myRb.velocity.y);
-
-        // Flip the sprite based on the direction of movement
-        // Animation flip code
-        if (_speed < 0.1f) // If the player is moving right
+// Flip the sprite based on the direction of movement
+        if (_speed < 0.1f) // If the enemy is moving right
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-        
-        if (_speed > -0.1f) // if the player is moving to the left
+        else if (_speed > -0.1f) // if the enemy is moving to the left
         {
-            transform.localScale = new Vector3(-1, 1, 1); // set the scale of the player to -1,1,1
+            transform.localScale = new Vector3(-1, 1, 1); // set the scale of the enemy to -1,1,1
         }
+
        
     }
 
