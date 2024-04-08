@@ -396,6 +396,7 @@
 "Assets/Scripts/CharacterController.cs"
 "Assets/Scripts/Checkpoint.cs"
 "Assets/Scripts/CollectedEffect.cs"
+"Assets/Scripts/EnemyAIScript.cs"
 "Assets/Scripts/FireTrap.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GameUI.cs"
