@@ -22,17 +22,26 @@ public class CharacterControllerScript : MonoBehaviour
     public bool secondaryJump;
 
     public Animator anim;
+
+    public GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>(); // Look for a component called Rigidbody2D and assign it to variable
         anim = GetComponentInChildren<Animator>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If the game is lost, return from the update method
+        if (gameManager.gameLost)
+        {
+            return;
+        }
+        
         anim.SetFloat("speed", Mathf.Abs(myRigidbody.velocity.x));
         
         // Animation flip code

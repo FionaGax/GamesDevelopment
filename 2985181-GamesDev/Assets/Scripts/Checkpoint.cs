@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public GameManager gameManager;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -23,6 +26,11 @@ public class Checkpoint : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().spawnPoint = transform;
             gameObject.GetComponent<Animator>().SetTrigger("checkpointTrigger");
+        }
+
+        if (gameObject.CompareTag("EndGame"))
+        {
+            gameManager.gameWon = true;
         }
     }
 }

@@ -685,6 +685,10 @@ PrefabInstance:
       propertyPath: maxSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 265409162036827141, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 475973068894805119, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -704,6 +708,10 @@ PrefabInstance:
     - target: {fileID: 3288885377486618705, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646413987449971742, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4646413987449971742, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
       propertyPath: m_CollisionDetection
@@ -753,10 +761,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 265409162036827141, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6166951336303422086, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2120166633}
     - targetCorrespondingSourceObject: {fileID: 2508971847129151033, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1287826806}
@@ -25561,6 +25573,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2120166626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6166951336303422086, guid: cf5e38ad5f11bd847b65f266f9b1e3d2, type: 3}
+  m_PrefabInstance: {fileID: 1287826804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2120166633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120166626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78f40f0aadaec447aa861890a3ab121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 30
+  accelerationForce: 12
+  myRigidbody: {fileID: 0}
+  jumpForce: 25
+  isOnGround: 0
+  secondaryJumpForce: 10
+  secondaryJumpTime: 0.5
+  secondaryJump: 0
+  anim: {fileID: 0}
 --- !u!1001 &1500309432604777674
 PrefabInstance:
   m_ObjectHideFlags: 0
