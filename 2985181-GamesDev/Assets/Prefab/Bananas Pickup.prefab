@@ -123,7 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 5
   gameManager: {fileID: 0}
-  collectedEffect: {fileID: 0}
+  collectedEffect: {fileID: 4565612476504835514, guid: fca98ff86da0cac4aa87d6955f88f473, type: 3}
 --- !u!50 &8963845437085548175
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4917240828924281352}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
